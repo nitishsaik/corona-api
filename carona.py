@@ -28,5 +28,5 @@ for row in rows:
             "newdeaths":newc,
             "recoverd":rec
         })
-Json_carona=json.dumps(d,indent=4)
+#Json_carona=json.dumps(d,indent=4)
 #print(Json_carona)
