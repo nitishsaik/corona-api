@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import jsonify
-import carona
+import corona
 app = Flask(__name__)
 @app.route('/total', methods=['GET'])
 def tot():
