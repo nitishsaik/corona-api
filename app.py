@@ -4,9 +4,9 @@ import corona
 app = Flask(__name__)
 @app.route('/total', methods=['GET'])
 def tot():
-    return jsonify(carona.f)
+    return jsonify(corona.f)
 @app.route('/', methods=['GET'])
 def index():
-    return jsonify(carona.d)
+    return jsonify(corona.d)
 if __name__=="__main__":
     app.run(threaded=True, port=5000)
