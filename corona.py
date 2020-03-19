@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as ur
 import requests
 import json
+import pycountry
 
 URL='https://www.worldometers.info/coronavirus/'
 headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
@@ -32,6 +33,8 @@ f["Main"].append({
 
 #To get table data
 
+#To get table data
+mapping = {country.name: country.alpha_2 for country in pycountry.countries}
 for row in rows:
     cols=row.find_all('td')
     z=['0' if v.text.strip() == "" else v.text.strip() for v in cols]
@@ -39,8 +42,10 @@ for row in rows:
     #print(z)
     if len(z)!=0:
         c,totc,newc,totd,newd,totrecv,Actcases,seri,avg=z
+    
         d['Corona'].append({
             "Country":c,
+            "Code":str(mapping.get(c)).lower(),
             "TotalCases":totc,
             "NewCases":newc,
             "TotalDeaths":totd,
@@ -51,4 +56,3 @@ for row in rows:
             "Average":avg
 
         })
-
