@@ -24,9 +24,30 @@ mains=soup.findAll("div", {"id": "maincounter-wrap"} )
 
 for i in mains:
     ss.append(i.find("span").text)
+temp=soup.find_all("div",{"class":"panel_flip"})
+data1=[]
+data2=[]
+for k in temp:
+   x=k.findAll("div",{"class":"number-table-main"})
+   for i in x:
+     data1.append(i.text.strip())
+   m=k.findAll("span")
+   for j in m:
+     data2.append(j.text.strip())
+
+ 
+#print(temp1)
+cuinf,cloc=data1
+mild,seri,dis,dea=data2
 coc,cocd,rec=ss
 f["Main"].append({
     "CoronaCases":coc,
+    "CoronaCurrent":cuinf,
+    "CoronaClose":cloc,
+    "CoronaMild":mild,
+    "CoronaCritical":seri,
+    "CoronaDischarged":dis,
+    "CoronaDeaths":dea,
     "CoronaDeaths":cocd,
     "Recoverd":rec
 })
