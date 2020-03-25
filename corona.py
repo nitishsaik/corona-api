@@ -62,7 +62,7 @@ for row in rows:
 
     #print(z)
     if len(z)!=0:
-        c,totc,newc,totd,newd,totrecv,Actcases,seri,avg=z
+        c,totc,newc,totd,newd,totrecv,Actcases,seri,avg,Avgd=z
     
         d['Corona'].append({
             "Country":c,
@@ -74,6 +74,7 @@ for row in rows:
             "TotalRecoverd":totrecv,
             "ActiveCases":Actcases,
             "Serious":seri,
-            "Average":avg
+            "Average":avg,
+            "AverageDeaths":Avgd
 
         })
