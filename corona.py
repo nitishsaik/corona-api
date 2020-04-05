@@ -62,12 +62,13 @@ for row in rows:
 
     #print(z)
     if len(z)!=0:
-        c,totc,newc,totd,newd,totrecv,Actcases,seri,avg,Avgd=z
+        c,totc,newc,totd,newd,totrecv,Actcases,seri,avg,Avgd,totes,avgtes=z
     
         d['Corona'].append({
             "Country":c,
             "Code":str(mapping.get(c)).lower(),
             "TotalCases":totc,
+    
             "NewCases":newc,
             "TotalDeaths":totd,
             "NewDeaths":newd,
@@ -78,3 +79,4 @@ for row in rows:
             "AverageDeaths":Avgd
 
         })
+
